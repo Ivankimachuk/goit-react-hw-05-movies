@@ -5,6 +5,14 @@ import api from 'services/api';
 import CastPage from "./CastPage";
 import ReviewsPage from "./ReviewsPage";
 
+import { 
+  StyledNav, 
+  Container,
+  StyledTitle, 
+  StyledInfo
+} from "./MovieDetails.styled";
+
+
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
@@ -49,9 +57,9 @@ const MovieDetails = () => {
   return (
     <>
       {movieDetails !== null && (
-        <div>
-          <Link to={backLinkHref.current}>Go Back</Link>
-          <h2>{movieDetails.title}</h2>
+        <Container>
+          <StyledNav to={backLinkHref.current}>Go Back</StyledNav>
+          <StyledTitle>{movieDetails.title}</StyledTitle>
           <img
             src={posterUrl}
             alt={`${movieDetails.title} Poster`}
@@ -65,14 +73,14 @@ const MovieDetails = () => {
               <li key={genre.id}>{genre.name}</li>
             ))}
           </ul>
-        </div>
+        </Container>
       )}
       <div>
         <h3>Additional information</h3>
       </div>
       <div>
-        <Link to='cast'>Cast</Link>
-        <Link to='reviews'>Reviews</Link>
+        <StyledInfo to='cast'>Cast</StyledInfo>
+        <StyledInfo to='reviews'>Reviews</StyledInfo>
       </div>
       <Routes>
         <Route path="cast" element={<CastPage />} />

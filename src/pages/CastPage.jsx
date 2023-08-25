@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import Loader from "components/Loader/Loader";
 import api from 'services/api';
 
+import { StyledUl, StyledLi,StyledName } from './CastPage.styled';
+
 const CastPage = () => {
     const { movieId } = useParams();
     const [castDetails, setCastDetails] = useState([]);
@@ -15,7 +17,7 @@ const CastPage = () => {
                 setLoading(true);
 
                 const castDetails = await api.fetchCreditsMovies(movieId);
-                
+
                 setCastDetails(castDetails);
             } catch (error) {
                 setError(error.message)
@@ -41,26 +43,23 @@ const CastPage = () => {
 
     return (
         <div>
-            <h2>Cast</h2>
-            <ul>
+            <StyledName>Cast</StyledName>
+            <StyledUl>
                 {castDetails.map(({ id, name, profile_path, character }) => (
-                    <li key={id}>
-                        <h3>{name}</h3>
-                        {profile_path ? (
+                    profile_path !== null && ( 
+                        <StyledLi key={id}>
+                            <h4>{name}</h4>
                             <img
                                 src={`https://image.tmdb.org/t/p/w300${profile_path}`}
                                 alt={`${name} Poster`}
                             />
-                        ) : (
-                            <p>No image available.</p>
-                        )}
-                        <p>Character: {character}</p>
-                    </li>
+                            <p>Character: {character}</p>
+                        </StyledLi>
+                    )
                 ))}
-            </ul>
+            </StyledUl>
         </div>
     );
 };
 
 export default CastPage;
-

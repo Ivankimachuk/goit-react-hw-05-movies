@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "components/Loader/Loader";
 import api from 'services/api';
+import { Container } from "./MovieDetails.styled";
 
 const MoviesReviewsPage = () => {
     const { movieId } = useParams();
@@ -36,7 +37,7 @@ const MoviesReviewsPage = () => {
     }
 
     return (
-        <div>
+        <Container>
             {movieReviews.length !== 0 ? (
                 <ul>
                     {movieReviews.map(({ author, content, id }) => (  
@@ -49,7 +50,7 @@ const MoviesReviewsPage = () => {
             ) : (
                 <p>There are no reviews.</p>
             )}
-        </div>
+        </Container>
     );
 }
 

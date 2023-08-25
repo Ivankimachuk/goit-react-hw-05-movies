@@ -23,3 +23,8 @@ export const StyledNavLink = styled(NavLink)`
   }
 `;
 
+export const Container = styled.div`
+  background: rgb(24,21,21);
+  background: linear-gradient(0deg, rgba(24,21,21,1) 0%, rgba(253,55,45,1) 100%);
+`;
+

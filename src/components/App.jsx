@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import React, { Suspense, lazy } from 'react';
 import Loader from "components/Loader/Loader";
-import { StyledNavLink, StyledNav } from './App.styled';
+import { StyledNavLink, StyledNav, Container } from './App.styled';
 
 const HomePage = lazy(() => import("pages/HomePage"));
 const SearchPage = lazy(() => import("pages/SearchPage"));
@@ -12,11 +12,7 @@ const NotFound = lazy(() => import("pages/NotFound"));
 
 export const App = () => {
   return (
-    <div
-    style={{
-      height: '100vh',
-    }}
-    >
+    <Container>
       <header>
         <StyledNav>
           <StyledNavLink to='/'>Home</StyledNavLink>
@@ -33,6 +29,6 @@ export const App = () => {
         </Routes>
         </Suspense>
       </main>
-    </div>
+    </Container>
   );
 };
