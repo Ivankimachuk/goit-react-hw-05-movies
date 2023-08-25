@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams, Link, Routes, Route, useLocation } from "react-router-dom";
+import { useParams, Routes, Route, useLocation } from "react-router-dom";
 import Loader from "components/Loader/Loader";
 import api from 'services/api';
 import CastPage from "./CastPage";

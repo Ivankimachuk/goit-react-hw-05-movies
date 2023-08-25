@@ -28,11 +28,12 @@ const fetchReviewsMovies = async ( movieId ) => {
     return res.data;
 };
 
-export default {
+const api = {
     fetchTrendingMovies,
     fetchSearchMovies,
     fetchDetailsMovies,
     fetchCreditsMovies,
     fetchReviewsMovies,
-};
-
+  };
+  
+  export default api;
